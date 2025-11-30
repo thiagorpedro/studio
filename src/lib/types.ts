@@ -52,3 +52,17 @@ export type Sale = {
   item: string;
   value: number;
 };
+
+export type BeltExam = {
+  id: string;
+  studentId: string;
+  examDate: string;
+  examTime: string;
+  targetBelt: 'Amarela' | 'Laranja' | 'Verde' | 'Azul' | 'Marrom' | 'Preta';
+  payment: {
+    status: 'Pago' | 'Pendente';
+    value: number;
+    paymentDate?: string;
+    paymentMethod?: 'Cartão de Crédito' | 'Transferência' | 'Dinheiro';
+  };
+};

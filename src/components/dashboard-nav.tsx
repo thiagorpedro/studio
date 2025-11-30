@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Shield, Home, Users, ShoppingCart, Settings, DollarSign } from 'lucide-react';
+import { Shield, Home, Users, ShoppingCart, Settings, DollarSign, Award } from 'lucide-react';
 import {
   SidebarHeader,
   SidebarContent,
@@ -17,6 +17,7 @@ const links = [
   { href: '/dashboard/students', label: 'Alunos', icon: Users },
   { href: '/dashboard/financials', label: 'Financeiro', icon: DollarSign },
   { href: '/dashboard/sales', label: 'Vendas', icon: ShoppingCart },
+  { href: '/dashboard/belt-exams', label: 'Exames de Faixa', icon: Award },
 ];
 
 export function DashboardNav() {

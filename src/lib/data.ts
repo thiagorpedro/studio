@@ -1,4 +1,4 @@
-import type { Student, Payment, Sale } from './types';
+import type { Student, Payment, Sale, BeltExam } from './types';
 
 export const students: Student[] = [
   {
@@ -108,6 +108,34 @@ export const sales: Sale[] = [
     { id: 'sa3', studentId: '2', studentName: 'Bruno Costa', date: '2024-04-11', item: 'Suplemento de Proteína', value: 120 },
     { id: 'sa4', studentId: '5', studentName: 'Eduarda Lima', date: '2024-05-15', item: 'Uniforme', value: 250 },
 ];
+
+export const beltExams: BeltExam[] = [
+  {
+    id: 'be1',
+    studentId: '1',
+    examDate: '2024-06-30',
+    examTime: '10:00',
+    targetBelt: 'Azul',
+    payment: {
+      status: 'Pago',
+      value: 200,
+      paymentDate: '2024-06-01',
+      paymentMethod: 'Cartão de Crédito',
+    }
+  },
+  {
+    id: 'be2',
+    studentId: '3',
+    examDate: '2024-06-30',
+    examTime: '10:00',
+    targetBelt: 'Laranja',
+    payment: {
+      status: 'Pendente',
+      value: 180,
+    }
+  },
+];
+
 
 export const getStudentById = (id: string) => students.find(s => s.id === id);
 export const getPaymentsByStudentId = (studentId: string) => payments.filter(p => p.studentId === studentId);

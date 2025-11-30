@@ -3,7 +3,7 @@
 import { getStudentById, getPaymentsByStudentId } from "@/lib/data"
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { ArrowLeft, Trash2 } from "lucide-react"
+import { ArrowLeft, Award, Trash2 } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import {
@@ -54,15 +54,30 @@ export default function StudentDetailPage({ params }: { params: { id: string } }
         </div>
       </div>
       <Tabs defaultValue="profile" className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
+        <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="profile">Perfil</TabsTrigger>
           <TabsTrigger value="financials">Financeiro</TabsTrigger>
+          <TabsTrigger value="training">Plano de Treino</TabsTrigger>
         </TabsList>
         <TabsContent value="profile">
           <ProfileForm student={student} />
         </TabsContent>
         <TabsContent value="financials">
           <FinancialRecords student={student} />
+        </TabsContent>
+         <TabsContent value="training">
+          <Card>
+            <CardHeader>
+                <CardTitle>Em breve</CardTitle>
+                <CardDescription>Funcionalidades de treino personalizado com IA serão adicionadas aqui.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <div className="flex flex-col items-center justify-center text-center text-muted-foreground h-48">
+                    <Award className="h-12 w-12 mb-4" />
+                    <p>Acompanhe o progresso e receba recomendações de treino personalizadas no futuro.</p>
+                </div>
+            </CardContent>
+          </Card>
         </TabsContent>
       </Tabs>
     </div>
