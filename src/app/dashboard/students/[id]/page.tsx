@@ -3,7 +3,7 @@
 import { getStudentById, getPaymentsByStudentId } from "@/lib/data"
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Trash2 } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import {
@@ -18,6 +18,7 @@ import { ProfileForm } from "./components/profile-form"
 import { FinancialRecords } from "./components/financial-records"
 import { SendReminderButton } from "./components/send-reminder-button"
 import { isPast, parseISO } from "date-fns"
+import { DeleteStudentDialog } from "./components/delete-student-dialog"
 
 export default function StudentDetailPage({ params }: { params: { id: string } }) {
   const student = getStudentById(params.id)
@@ -49,6 +50,7 @@ export default function StudentDetailPage({ params }: { params: { id: string } }
         </div>
         <div className="ml-auto flex items-center gap-2">
             <SendReminderButton student={student} isOverdue={isOverdue} lastPayment={lastPayment}/>
+            <DeleteStudentDialog studentId={student.id} />
         </div>
       </div>
       <Tabs defaultValue="profile" className="w-full">
