@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -14,7 +15,8 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
-import { DollarSign, Users, Activity, AlertTriangle } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { DollarSign, Users, Activity, AlertTriangle, PlusCircle } from "lucide-react"
 import { students, payments } from "@/lib/data"
 import { differenceInDays, isPast, parseISO } from "date-fns"
 
@@ -38,7 +40,20 @@ export default function DashboardPage() {
   
   return (
     <div className="flex flex-col gap-8">
-      <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
+        <div className="flex items-center gap-2">
+            <Button asChild size="sm">
+                <Link href="/onboarding"><PlusCircle className="mr-2 h-4 w-4" /> Adicionar Aluno</Link>
+            </Button>
+            <Button asChild size="sm" variant="outline">
+                 <Link href="/dashboard/sales"><PlusCircle className="mr-2 h-4 w-4" /> Adicionar Venda</Link>
+            </Button>
+            <Button asChild size="sm" variant="outline">
+                <Link href="/dashboard/students"><PlusCircle className="mr-2 h-4 w-4" /> Adicionar Pagamento</Link>
+            </Button>
+        </div>
+      </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
