@@ -11,7 +11,6 @@ import { FinancialRecords } from "./components/financial-records"
 import { SendReminderButton } from "./components/send-reminder-button"
 import { isPast, parseISO } from "date-fns"
 import { DeleteStudentDialog } from "./components/delete-student-dialog"
-import { TrainingPlan } from "./components/training-plan"
 
 export default function StudentDetailPage({ params }: { params: { id: string } }) {
   const student = getStudentById(params.id)
@@ -47,19 +46,15 @@ export default function StudentDetailPage({ params }: { params: { id: string } }
         </div>
       </div>
       <Tabs defaultValue="profile" className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
+        <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="profile">Perfil</TabsTrigger>
           <TabsTrigger value="financials">Financeiro</TabsTrigger>
-          <TabsTrigger value="training">Plano de Treino</TabsTrigger>
         </TabsList>
         <TabsContent value="profile">
           <ProfileForm student={student} />
         </TabsContent>
         <TabsContent value="financials">
           <FinancialRecords student={student} />
-        </TabsContent>
-        <TabsContent value="training">
-          <TrainingPlan student={student} />
         </TabsContent>
       </Tabs>
     </div>
