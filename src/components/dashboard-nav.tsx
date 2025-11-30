@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Shield, Home, Users, ShoppingCart, Settings, DollarSign, Award, BookOpen } from 'lucide-react';
+import { Home, Users, ShoppingCart, Settings, DollarSign, Award, BookOpen } from 'lucide-react';
 import {
   SidebarHeader,
   SidebarContent,
@@ -11,6 +11,7 @@ import {
   SidebarFooter,
 } from '@/components/ui/sidebar';
 import { useSidebar } from '@/components/ui/sidebar';
+import { KravMagaIcon } from './ui/krav-maga-icon';
 
 const links = [
   { href: '/dashboard', label: 'Painel', icon: Home },
@@ -29,8 +30,8 @@ export function DashboardNav() {
       <div className="flex h-full flex-col">
         <SidebarHeader className="p-4">
             <Link href="/dashboard" className="flex items-center gap-3">
-                <Shield className="h-8 w-8 text-primary" />
-                {state === 'expanded' && <span className="text-xl font-semibold text-sidebar-foreground">Krav Manager</span>}
+                <KravMagaIcon className="h-8 w-8 text-primary" />
+                {state === 'expanded' && <span className="text-xl font-semibold text-sidebar-foreground">Krav Magá Ipiranga</span>}
             </Link>
         </SidebarHeader>
 

@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'Krav Manager',
-  description: 'Gerencie sua academia de Krav Maga com facilidade.',
+  title: 'Krav Magá Ipiranga',
+  description: 'Gerencie sua academia de Krav Magá com facilidade.',
 };
 
 export default function RootLayout({
@@ -25,4 +25,3 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
