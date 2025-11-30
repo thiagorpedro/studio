@@ -3,22 +3,16 @@
 import { getStudentById, getPaymentsByStudentId } from "@/lib/data"
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { ArrowLeft, Award, Trash2 } from "lucide-react"
+import { ArrowLeft } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ProfileForm } from "./components/profile-form"
 import { FinancialRecords } from "./components/financial-records"
 import { SendReminderButton } from "./components/send-reminder-button"
 import { isPast, parseISO } from "date-fns"
 import { DeleteStudentDialog } from "./components/delete-student-dialog"
+import { TrainingPlan } from "./components/training-plan"
 
 export default function StudentDetailPage({ params }: { params: { id: string } }) {
   const student = getStudentById(params.id)
@@ -66,18 +60,7 @@ export default function StudentDetailPage({ params }: { params: { id: string } }
           <FinancialRecords student={student} />
         </TabsContent>
          <TabsContent value="training">
-          <Card>
-            <CardHeader>
-                <CardTitle>Em breve</CardTitle>
-                <CardDescription>Funcionalidades de treino personalizado com IA serão adicionadas aqui.</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <div className="flex flex-col items-center justify-center text-center text-muted-foreground h-48">
-                    <Award className="h-12 w-12 mb-4" />
-                    <p>Acompanhe o progresso e receba recomendações de treino personalizadas no futuro.</p>
-                </div>
-            </CardContent>
-          </Card>
+            <TrainingPlan student={student} />
         </TabsContent>
       </Tabs>
     </div>

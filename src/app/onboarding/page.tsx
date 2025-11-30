@@ -16,7 +16,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { KravMagaIcon } from "@/components/ui/krav-maga-icon"
 import Link from "next/link"
 
 export default function OnboardingPage() {
@@ -24,7 +23,6 @@ export default function OnboardingPage() {
     <div className="min-h-screen bg-secondary/50 flex flex-col items-center justify-center p-4">
       <div className="w-full max-w-4xl">
         <div className="flex justify-center items-center gap-3 mb-6">
-            <KravMagaIcon className="h-10 w-10 text-primary" />
             <h1 className="text-3xl font-bold tracking-tight">Krav Magá Ipiranga</h1>
         </div>
         <form className="space-y-6">

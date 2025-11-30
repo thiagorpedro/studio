@@ -11,7 +11,6 @@ import {
   SidebarFooter,
 } from '@/components/ui/sidebar';
 import { useSidebar } from '@/components/ui/sidebar';
-import { KravMagaIcon } from './ui/krav-maga-icon';
 
 const links = [
   { href: '/dashboard', label: 'Painel', icon: Home },
@@ -30,7 +29,6 @@ export function DashboardNav() {
       <div className="flex h-full flex-col">
         <SidebarHeader className="p-4">
             <Link href="/dashboard" className="flex items-center gap-3">
-                <KravMagaIcon className="h-8 w-8 text-primary" />
                 {state === 'expanded' && <span className="text-xl font-semibold text-sidebar-foreground">Krav Magá Ipiranga</span>}
             </Link>
         </SidebarHeader>

@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { personalizedTrainingRecommendations, PersonalizedTrainingRecommendationsOutput } from "@/ai/flows/personalized-training-recommendations";
@@ -66,7 +65,7 @@ export function TrainingPlan({ student }: { student: Student }) {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       <Card>
         <CardHeader>
-          <CardTitle>Gerar Plano de Treino</CardTitle>
+          <CardTitle>Gerar Plano de Treino Personalizado</CardTitle>
           <CardDescription>
             Use a IA para gerar um plano de treino personalizado com base nos dados do aluno.
           </CardDescription>
@@ -87,13 +86,13 @@ export function TrainingPlan({ student }: { student: Student }) {
                           </SelectTrigger>
                        </FormControl>
                        <SelectContent>
-                          <SelectItem value="White">Branca</SelectItem>
-                          <SelectItem value="Yellow">Amarela</SelectItem>
-                          <SelectItem value="Orange">Laranja</SelectItem>
-                          <SelectItem value="Green">Verde</SelectItem>
-                          <SelectItem value="Blue">Azul</SelectItem>
-                          <SelectItem value="Brown">Marrom</SelectItem>
-                          <SelectItem value="Black">Preta</SelectItem>
+                          <SelectItem value="Branca">Branca</SelectItem>
+                          <SelectItem value="Amarela">Amarela</SelectItem>
+                          <SelectItem value="Laranja">Laranja</SelectItem>
+                          <SelectItem value="Verde">Verde</SelectItem>
+                          <SelectItem value="Azul">Azul</SelectItem>
+                          <SelectItem value="Marrom">Marrom</SelectItem>
+                          <SelectItem value="Preta">Preta</SelectItem>
                        </SelectContent>
                     </Select>
                     <FormMessage />
