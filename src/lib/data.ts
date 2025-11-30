@@ -1,4 +1,4 @@
-import type { Student, Payment, Sale, BeltExam } from './types';
+import type { Student, Payment, Sale, BeltExam, Seminar } from './types';
 
 export const students: Student[] = [
   {
@@ -134,6 +134,33 @@ export const beltExams: BeltExam[] = [
       value: 180,
     }
   },
+];
+
+export const seminars: Seminar[] = [
+  {
+    id: 'sem1',
+    studentId: '2',
+    seminarName: 'Defesa Contra Ameaças com Faca',
+    seminarDate: '2024-07-15',
+    notes: 'Foco em desarmes e controle de distância.',
+    payment: {
+      status: 'Pago',
+      value: 100,
+      paymentDate: '2024-06-10',
+      paymentMethod: 'Transferência'
+    }
+  },
+  {
+    id: 'sem2',
+    studentId: '1',
+    seminarName: 'Técnicas de Solo e Retenção',
+    seminarDate: '2024-08-20',
+    notes: 'Revisão de posições e finalizações básicas.',
+    payment: {
+      status: 'Pendente',
+      value: 120,
+    }
+  }
 ];
 
 

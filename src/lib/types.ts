@@ -66,3 +66,17 @@ export type BeltExam = {
     paymentMethod?: 'Cartão de Crédito' | 'Transferência' | 'Dinheiro';
   };
 };
+
+export type Seminar = {
+  id: string;
+  studentId: string;
+  seminarName: string;
+  seminarDate: string;
+  notes: string;
+  payment: {
+    status: 'Pago' | 'Pendente';
+    value: number;
+    paymentDate?: string;
+    paymentMethod?: 'Cartão de Crédito' | 'Transferência' | 'Dinheiro';
+  };
+};
