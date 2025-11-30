@@ -29,7 +29,7 @@ export default function StudentDetailPage({ params }: { params: { id: string } }
         <Button asChild variant="outline" size="icon">
           <Link href="/dashboard/students">
             <ArrowLeft className="h-4 w-4" />
-            <span className="sr-only">Back</span>
+            <span className="sr-only">Voltar</span>
           </Link>
         </Button>
         <Avatar className="h-12 w-12">
@@ -43,22 +43,22 @@ export default function StudentDetailPage({ params }: { params: { id: string } }
         <div className="ml-auto flex items-center gap-2">
             <Button variant="outline">
                 <BellRing className="mr-2 h-4 w-4" />
-                Send Reminder
+                Enviar Lembrete
             </Button>
         </div>
       </div>
       <Tabs defaultValue="profile" className="w-full">
         <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="profile">Profile</TabsTrigger>
-          <TabsTrigger value="financials">Financials</TabsTrigger>
-          <TabsTrigger value="training">Training Plan</TabsTrigger>
+          <TabsTrigger value="profile">Perfil</TabsTrigger>
+          <TabsTrigger value="financials">Financeiro</TabsTrigger>
+          <TabsTrigger value="training">Plano de Treino</TabsTrigger>
         </TabsList>
         <TabsContent value="profile">
           <Card>
             <CardHeader>
-              <CardTitle>Student Profile</CardTitle>
+              <CardTitle>Perfil do Aluno</CardTitle>
               <CardDescription>
-                Detailed information about the student.
+                Informações detalhadas sobre o aluno.
               </CardDescription>
             </CardHeader>
             <CardContent>

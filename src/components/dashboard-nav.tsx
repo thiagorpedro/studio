@@ -13,9 +13,9 @@ import {
 import { useSidebar } from '@/components/ui/sidebar';
 
 const links = [
-  { href: '/dashboard', label: 'Dashboard', icon: Home },
-  { href: '/dashboard/students', label: 'Students', icon: Users },
-  { href: '/dashboard/sales', label: 'Sales', icon: ShoppingCart },
+  { href: '/dashboard', label: 'Painel', icon: Home },
+  { href: '/dashboard/students', label: 'Alunos', icon: Users },
+  { href: '/dashboard/sales', label: 'Vendas', icon: ShoppingCart },
 ];
 
 export function DashboardNav() {
@@ -56,11 +56,11 @@ export function DashboardNav() {
                     <SidebarMenuButton 
                         asChild 
                         isActive={pathname.startsWith('/dashboard/settings')}
-                        tooltip={{ children: 'Settings' }}
+                        tooltip={{ children: 'Configurações' }}
                     >
                         <Link href="/dashboard/settings">
                             <Settings className="h-5 w-5" />
-                            <span>Settings</span>
+                            <span>Configurações</span>
                         </Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>

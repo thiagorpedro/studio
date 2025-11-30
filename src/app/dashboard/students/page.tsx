@@ -21,6 +21,7 @@ import { PlusCircle, FileUp, FileDown } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { students, payments } from "@/lib/data"
 import { isPast, parseISO, formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
 export default function StudentsPage() {
   const activeStudents = students.filter(s => s.status === 'Active');
@@ -31,13 +32,14 @@ export default function StudentsPage() {
       .filter(p => p.studentId === studentId)
       .sort((a,b) => parseISO(b.date).getTime() - parseISO(a.date).getTime())[0];
     
-    if (!lastPayment) return { text: "No Plan", variant: "secondary" as const, details: "" };
+    if (!lastPayment) return { text: "Sem Plano", variant: "secondary" as const, details: "" };
 
     const validUntil = parseISO(lastPayment.validUntil);
+    const options = { locale: ptBR, addSuffix: true };
     if (isPast(validUntil)) {
-      return { text: "Expired", variant: "destructive" as const, details: `Expired ${formatDistanceToNow(validUntil)} ago` };
+      return { text: "Expirado", variant: "destructive" as const, details: `Expirou ${formatDistanceToNow(validUntil, options)}` };
     }
-    return { text: "Active", variant: "default" as const, details: `Expires in ${formatDistanceToNow(validUntil)}` };
+    return { text: "Ativo", variant: "default" as const, details: `Expira ${formatDistanceToNow(validUntil, options)}` };
   };
 
   const StudentTable = ({ studentList }: { studentList: typeof students }) => (
@@ -45,14 +47,14 @@ export default function StudentsPage() {
       <TableHeader>
         <TableRow>
           <TableHead className="hidden w-[100px] sm:table-cell">
-            <span className="sr-only">Image</span>
+            <span className="sr-only">Imagem</span>
           </TableHead>
-          <TableHead>Name</TableHead>
-          <TableHead>Belt</TableHead>
-          <TableHead className="hidden md:table-cell">Plan Status</TableHead>
-          <TableHead className="hidden md:table-cell">Start Date</TableHead>
+          <TableHead>Nome</TableHead>
+          <TableHead>Faixa</TableHead>
+          <TableHead className="hidden md:table-cell">Status do Plano</TableHead>
+          <TableHead className="hidden md:table-cell">Data de Início</TableHead>
           <TableHead>
-            <span className="sr-only">Actions</span>
+            <span className="sr-only">Ações</span>
           </TableHead>
         </TableRow>
       </TableHeader>
@@ -77,7 +79,7 @@ export default function StudentsPage() {
               <TableCell className="hidden md:table-cell">{new Date(student.startDate).toLocaleDateString()}</TableCell>
               <TableCell>
                 <Button asChild size="sm" variant="outline">
-                    <Link href={`/dashboard/students/${student.id}`}>View</Link>
+                    <Link href={`/dashboard/students/${student.id}`}>Ver</Link>
                 </Button>
               </TableCell>
             </TableRow>
@@ -90,27 +92,27 @@ export default function StudentsPage() {
   return (
     <div className="flex flex-col gap-8">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Students</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Alunos</h1>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm"><FileDown className="mr-2 h-4 w-4" /> Export</Button>
-          <Button variant="outline" size="sm"><FileUp className="mr-2 h-4 w-4" /> Import</Button>
+          <Button variant="outline" size="sm"><FileDown className="mr-2 h-4 w-4" /> Exportar</Button>
+          <Button variant="outline" size="sm"><FileUp className="mr-2 h-4 w-4" /> Importar</Button>
           <Button asChild size="sm">
-            <Link href="/onboarding"><PlusCircle className="mr-2 h-4 w-4" /> Add Student</Link>
+            <Link href="/onboarding"><PlusCircle className="mr-2 h-4 w-4" /> Adicionar Aluno</Link>
           </Button>
         </div>
       </div>
       
       <Tabs defaultValue="active">
         <TabsList>
-          <TabsTrigger value="active">Active</TabsTrigger>
-          <TabsTrigger value="inactive">Inactive</TabsTrigger>
+          <TabsTrigger value="active">Ativos</TabsTrigger>
+          <TabsTrigger value="inactive">Inativos</TabsTrigger>
         </TabsList>
         <TabsContent value="active">
           <Card>
             <CardHeader>
-              <CardTitle>Active Students</CardTitle>
+              <CardTitle>Alunos Ativos</CardTitle>
               <CardDescription>
-                List of all currently active students.
+                Lista de todos os alunos atualmente ativos.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -121,9 +123,9 @@ export default function StudentsPage() {
         <TabsContent value="inactive">
           <Card>
             <CardHeader>
-              <CardTitle>Inactive Students</CardTitle>
+              <CardTitle>Alunos Inativos</CardTitle>
               <CardDescription>
-                List of students who are not currently training.
+                Lista de alunos que não estão treinando no momento.
               </CardDescription>
             </CardHeader>
             <CardContent>

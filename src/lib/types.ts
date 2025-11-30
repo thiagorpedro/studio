@@ -18,7 +18,7 @@ export type Student = {
   }[];
   startDate: string;
   lastGradingDate?: string;
-  belt: 'White' | 'Yellow' | 'Orange' | 'Green' | 'Blue' | 'Brown' | 'Black';
+  belt: 'Branca' | 'Amarela' | 'Laranja' | 'Verde' | 'Azul' | 'Marrom' | 'Preta';
   medicalHistory: string;
   notes: string;
   status: 'Active' | 'Inactive';
@@ -27,7 +27,7 @@ export type Student = {
   avatarUrl: string;
 };
 
-export type PaymentPlanType = 'Monthly' | 'Quarterly' | 'Annual';
+export type PaymentPlanType = 'Mensal' | 'Trimestral' | 'Anual';
 
 export type PaymentPlan = {
   type: PaymentPlanType;

@@ -23,27 +23,27 @@ export default function SalesPage() {
   return (
     <div className="flex flex-col gap-8">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Sales</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Vendas</h1>
         <Button size="sm">
-          <PlusCircle className="mr-2 h-4 w-4" /> Add Sale
+          <PlusCircle className="mr-2 h-4 w-4" /> Adicionar Venda
         </Button>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>Sales History</CardTitle>
+          <CardTitle>Histórico de Vendas</CardTitle>
           <CardDescription>
-            A record of all merchandise and other sales.
+            Um registro de todas as mercadorias e outras vendas.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Student</TableHead>
+                <TableHead>Aluno</TableHead>
                 <TableHead>Item</TableHead>
-                <TableHead className="hidden md:table-cell">Date</TableHead>
-                <TableHead className="text-right">Value</TableHead>
+                <TableHead className="hidden md:table-cell">Data</TableHead>
+                <TableHead className="text-right">Valor</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

@@ -41,7 +41,7 @@ export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Painel</h1>
         <div className="flex items-center gap-2">
             <Button asChild size="sm">
                 <Link href="/onboarding"><PlusCircle className="mr-2 h-4 w-4" /> Adicionar Aluno</Link>
@@ -58,73 +58,73 @@ export default function DashboardPage() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Monthly Revenue
+              Receita Mensal
             </CardTitle>
             <DollarSign className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">R$ {monthlyRevenue.toFixed(2)}</div>
             <p className="text-xs text-muted-foreground">
-              +20.1% from last month
+              +20.1% em relação ao mês passado
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Active Students
+              Alunos Ativos
             </CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{activeStudents}</div>
             <p className="text-xs text-muted-foreground">
-              out of {totalStudents} total students
+              de {totalStudents} alunos no total
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Overdue Payments</CardTitle>
+            <CardTitle className="text-sm font-medium">Pagamentos Atrasados</CardTitle>
             <AlertTriangle className="h-4 w-4 text-destructive" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{overduePayments.length}</div>
             <p className="text-xs text-muted-foreground">
-              students with pending payments
+              alunos com pagamentos pendentes
             </p>
           </CardContent>
         </Card>
          <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Recent Activity
+              Atividade Recente
             </CardTitle>
             <Activity className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">+{recentActivity.length}</div>
             <p className="text-xs text-muted-foreground">
-              New activities this month
+              novas atividades este mês
             </p>
           </CardContent>
         </Card>
       </div>
       <Card>
         <CardHeader>
-          <CardTitle>Recent Activity</CardTitle>
+          <CardTitle>Atividade Recente</CardTitle>
           <CardDescription>
-            Recent payments and new student registrations.
+            Pagamentos recentes e novas matrículas de alunos.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Student</TableHead>
-                <TableHead>Type</TableHead>
-                <TableHead>Date</TableHead>
-                <TableHead className="text-right">Amount</TableHead>
+                <TableHead>Aluno</TableHead>
+                <TableHead>Tipo</TableHead>
+                <TableHead>Data</TableHead>
+                <TableHead className="text-right">Valor</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -140,9 +140,9 @@ export default function DashboardPage() {
                     </TableCell>
                     <TableCell>
                       {isPayment(activity) ? (
-                        <Badge variant="outline">Payment</Badge>
+                        <Badge variant="outline">Pagamento</Badge>
                       ) : (
-                        <Badge variant="secondary">New Student</Badge>
+                        <Badge variant="secondary">Novo Aluno</Badge>
                       )}
                     </TableCell>
                     <TableCell>

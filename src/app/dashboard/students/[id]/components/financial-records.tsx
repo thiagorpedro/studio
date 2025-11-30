@@ -36,33 +36,33 @@ export function FinancialRecords({ student }: { student: Student }) {
       <div className="lg:col-span-2">
         <Card>
           <CardHeader>
-            <CardTitle>Payment History</CardTitle>
+            <CardTitle>Histórico de Pagamentos</CardTitle>
             <CardDescription>
-              A log of all payments made by the student.
+              Um registro de todos os pagamentos feitos pelo aluno.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Payment Date</TableHead>
-                  <TableHead>Plan Type</TableHead>
-                  <TableHead>Valid Until</TableHead>
-                  <TableHead className="text-right">Value</TableHead>
+                  <TableHead>Data do Pagamento</TableHead>
+                  <TableHead>Tipo de Plano</TableHead>
+                  <TableHead>Válido Até</TableHead>
+                  <TableHead className="text-right">Valor</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {payments.map(payment => (
                   <TableRow key={payment.id}>
-                    <TableCell>{format(parseISO(payment.date), 'MM/dd/yyyy')}</TableCell>
+                    <TableCell>{format(parseISO(payment.date), 'dd/MM/yyyy')}</TableCell>
                     <TableCell>{payment.plan.type}</TableCell>
-                    <TableCell>{format(parseISO(payment.validUntil), 'MM/dd/yyyy')}</TableCell>
+                    <TableCell>{format(parseISO(payment.validUntil), 'dd/MM/yyyy')}</TableCell>
                     <TableCell className="text-right">R$ {payment.plan.value.toFixed(2)}</TableCell>
                   </TableRow>
                 ))}
                  {payments.length === 0 && (
                     <TableRow>
-                        <TableCell colSpan={4} className="text-center h-24">No payments found.</TableCell>
+                        <TableCell colSpan={4} className="text-center h-24">Nenhum pagamento encontrado.</TableCell>
                     </TableRow>
                 )}
               </TableBody>
@@ -73,39 +73,39 @@ export function FinancialRecords({ student }: { student: Student }) {
       <div>
         <Card>
           <CardHeader>
-            <CardTitle>Log New Payment</CardTitle>
+            <CardTitle>Registrar Novo Pagamento</CardTitle>
             <CardDescription>
-              Record a new payment for this student.
+              Registre um novo pagamento para este aluno.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="payment-date">Payment Date</Label>
+                <Label htmlFor="payment-date">Data do Pagamento</Label>
                 <Input id="payment-date" type="date" defaultValue={new Date().toISOString().substring(0, 10)} />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="plan-type">Plan Type</Label>
+                <Label htmlFor="plan-type">Tipo de Plano</Label>
                 <Select>
                   <SelectTrigger id="plan-type">
-                    <SelectValue placeholder="Select plan" />
+                    <SelectValue placeholder="Selecione o plano" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Monthly">Monthly</SelectItem>
-                    <SelectItem value="Quarterly">Quarterly</SelectItem>
-                    <SelectItem value="Annual">Annual</SelectItem>
+                    <SelectItem value="Monthly">Mensal</SelectItem>
+                    <SelectItem value="Quarterly">Trimestral</SelectItem>
+                    <SelectItem value="Annual">Anual</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="value">Value</Label>
-                <Input id="value" type="number" placeholder="e.g. 150.00" />
+                <Label htmlFor="value">Valor</Label>
+                <Input id="value" type="number" placeholder="ex: 150.00" />
               </div>
                <div className="space-y-2">
-                <Label htmlFor="valid-until">Valid Until</Label>
+                <Label htmlFor="valid-until">Válido Até</Label>
                 <Input id="valid-until" type="date" />
               </div>
-              <Button className="w-full">Save Payment</Button>
+              <Button className="w-full">Salvar Pagamento</Button>
             </form>
           </CardContent>
         </Card>

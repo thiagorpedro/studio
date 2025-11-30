@@ -12,11 +12,11 @@ export function ProfileForm({ student }: { student: Student }) {
     <form className="space-y-6">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         <div className="space-y-2">
-          <Label htmlFor="name">Full Name</Label>
+          <Label htmlFor="name">Nome Completo</Label>
           <Input id="name" defaultValue={student.name} />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="dob">Date of Birth</Label>
+          <Label htmlFor="dob">Data de Nascimento</Label>
           <Input id="dob" type="date" defaultValue={student.dob} />
         </div>
         <div className="space-y-2">
@@ -28,31 +28,31 @@ export function ProfileForm({ student }: { student: Student }) {
           <Input id="email" type="email" defaultValue={student.contactInfo.email} />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="phone">Phone</Label>
+          <Label htmlFor="phone">Telefone</Label>
           <Input id="phone" type="tel" defaultValue={student.contactInfo.phone} />
         </div>
          <div className="space-y-2">
-          <Label htmlFor="start-date">Start Date</Label>
+          <Label htmlFor="start-date">Data de Início</Label>
           <Input id="start-date" type="date" defaultValue={student.startDate} />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="last-grading">Last Grading</Label>
+          <Label htmlFor="last-grading">Última Graduação</Label>
           <Input id="last-grading" type="date" defaultValue={student.lastGradingDate} />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="belt">Belt</Label>
+          <Label htmlFor="belt">Faixa</Label>
           <Select defaultValue={student.belt}>
             <SelectTrigger id="belt">
-              <SelectValue placeholder="Select belt" />
+              <SelectValue placeholder="Selecione a faixa" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="White">White</SelectItem>
-              <SelectItem value="Yellow">Yellow</SelectItem>
-              <SelectItem value="Orange">Orange</SelectItem>
-              <SelectItem value="Green">Green</SelectItem>
-              <SelectItem value="Blue">Blue</SelectItem>
-              <SelectItem value="Brown">Brown</SelectItem>
-              <SelectItem value="Black">Black</SelectItem>
+              <SelectItem value="White">Branca</SelectItem>
+              <SelectItem value="Yellow">Amarela</SelectItem>
+              <SelectItem value="Orange">Laranja</SelectItem>
+              <SelectItem value="Green">Verde</SelectItem>
+              <SelectItem value="Blue">Azul</SelectItem>
+              <SelectItem value="Brown">Marrom</SelectItem>
+              <SelectItem value="Black">Preta</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -60,31 +60,31 @@ export function ProfileForm({ student }: { student: Student }) {
           <Label htmlFor="status">Status</Label>
            <Select defaultValue={student.status}>
             <SelectTrigger id="status">
-              <SelectValue placeholder="Select status" />
+              <SelectValue placeholder="Selecione o status" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="Active">Active</SelectItem>
-              <SelectItem value="Inactive">Inactive</SelectItem>
+              <SelectItem value="Active">Ativo</SelectItem>
+              <SelectItem value="Inactive">Inativo</SelectItem>
             </SelectContent>
           </Select>
         </div>
       </div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="medical-history">Medical History</Label>
+          <Label htmlFor="medical-history">Histórico Médico</Label>
           <Textarea id="medical-history" rows={4} defaultValue={student.medicalHistory} />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="notes">General Notes</Label>
+          <Label htmlFor="notes">Anotações Gerais</Label>
           <Textarea id="notes" rows={4} defaultValue={student.notes} />
         </div>
       </div>
       <div className="flex items-center space-x-2">
         <Switch id="fikm-fee" defaultChecked={student.fikmFeePaid} />
-        <Label htmlFor="fikm-fee">FIKM annual fee paid</Label>
+        <Label htmlFor="fikm-fee">Taxa anual FIKM paga</Label>
       </div>
       <div className="flex justify-end">
-        <Button>Save Changes</Button>
+        <Button>Salvar Alterações</Button>
       </div>
     </form>
   )
