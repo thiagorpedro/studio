@@ -1,12 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
-import type { ReactNode } from 'react';
-import { SidebarProvider, Sidebar, SidebarInset } from '@/components/ui/sidebar';
-import { DashboardNav } from '@/components/dashboard-nav';
-import { Header } from '@/components/header';
-import { cookies } from 'next/headers';
-
 
 export const metadata: Metadata = {
   title: 'Krav Magá Ipiranga',
@@ -25,8 +19,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const layout = cookies().get("sidebar_state");
-  const defaultOpen = layout ? layout.value === "true" : true;
 
   return (
     <html lang="pt-BR" suppressHydrationWarning>
@@ -36,17 +28,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        <SidebarProvider defaultOpen={defaultOpen}>
-          <Sidebar>
-            <DashboardNav />
-          </Sidebar>
-          <SidebarInset>
-            <Header />
-            <main className="p-4 sm:p-6 lg:p-8 bg-secondary/50 min-h-[calc(100vh-4rem)]">
-              {children}
-            </main>
-          </SidebarInset>
-        </SidebarProvider>
+        {children}
         <Toaster />
       </body>
     </html>
