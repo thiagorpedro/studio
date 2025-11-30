@@ -1,3 +1,9 @@
+
+import { getStudentById, getPaymentsByStudentId } from "@/lib/data"
+import { notFound } from "next/navigation"
+import Link from "next/link"
+import { ArrowLeft } from "lucide-react"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -7,14 +13,11 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { getStudentById } from "@/lib/data"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ArrowLeft, BellRing } from "lucide-react"
-import Link from "next/link"
-import { notFound } from "next/navigation"
 import { ProfileForm } from "./components/profile-form"
 import { FinancialRecords } from "./components/financial-records"
 import { TrainingPlan } from "./components/training-plan"
+import { SendReminderButton } from "./components/send-reminder-button"
+import { isPast, parseISO } from "date-fns"
 
 export default function StudentDetailPage({ params }: { params: { id: string } }) {
   const student = getStudentById(params.id)
@@ -22,6 +25,10 @@ export default function StudentDetailPage({ params }: { params: { id: string } }
   if (!student) {
     notFound()
   }
+
+  const payments = getPaymentsByStudentId(student.id)
+  const lastPayment = payments.sort((a,b) => parseISO(b.date).getTime() - parseISO(a.date).getTime())[0]
+  const isOverdue = lastPayment ? isPast(parseISO(lastPayment.validUntil)) : true;
 
   return (
     <div className="space-y-6">
@@ -41,10 +48,7 @@ export default function StudentDetailPage({ params }: { params: { id: string } }
             <p className="text-sm text-muted-foreground">{student.contactInfo.email}</p>
         </div>
         <div className="ml-auto flex items-center gap-2">
-            <Button variant="outline">
-                <BellRing className="mr-2 h-4 w-4" />
-                Enviar Lembrete
-            </Button>
+            <SendReminderButton student={student} isOverdue={isOverdue} lastPayment={lastPayment}/>
         </div>
       </div>
       <Tabs defaultValue="profile" className="w-full">
