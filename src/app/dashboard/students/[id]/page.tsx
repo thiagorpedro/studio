@@ -15,7 +15,6 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ProfileForm } from "./components/profile-form"
 import { FinancialRecords } from "./components/financial-records"
-import { TrainingPlan } from "./components/training-plan"
 import { SendReminderButton } from "./components/send-reminder-button"
 import { isPast, parseISO } from "date-fns"
 
@@ -52,10 +51,9 @@ export default function StudentDetailPage({ params }: { params: { id: string } }
         </div>
       </div>
       <Tabs defaultValue="profile" className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
+        <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="profile">Perfil</TabsTrigger>
           <TabsTrigger value="financials">Financeiro</TabsTrigger>
-          <TabsTrigger value="training">Plano de Treino</TabsTrigger>
         </TabsList>
         <TabsContent value="profile">
           <Card>
@@ -72,9 +70,6 @@ export default function StudentDetailPage({ params }: { params: { id: string } }
         </TabsContent>
         <TabsContent value="financials">
           <FinancialRecords student={student} />
-        </TabsContent>
-        <TabsContent value="training">
-          <TrainingPlan student={student} />
         </TabsContent>
       </Tabs>
     </div>
