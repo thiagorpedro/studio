@@ -1,4 +1,5 @@
 
+
 import { getStudentById, getPaymentsByStudentId } from "@/lib/data"
 import { notFound } from "next/navigation"
 import Link from "next/link"
@@ -56,17 +57,7 @@ export default function StudentDetailPage({ params }: { params: { id: string } }
           <TabsTrigger value="financials">Financeiro</TabsTrigger>
         </TabsList>
         <TabsContent value="profile">
-          <Card>
-            <CardHeader>
-              <CardTitle>Perfil do Aluno</CardTitle>
-              <CardDescription>
-                Informações detalhadas sobre o aluno.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ProfileForm student={student} />
-            </CardContent>
-          </Card>
+          <ProfileForm student={student} />
         </TabsContent>
         <TabsContent value="financials">
           <FinancialRecords student={student} />

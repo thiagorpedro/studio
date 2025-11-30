@@ -23,6 +23,7 @@ export type Student = {
   notes: string;
   status: 'Active' | 'Inactive';
   fikmFeePaid: boolean;
+  fikmFeePaidDate?: string;
   performanceData: string;
   avatarUrl: string;
 };
